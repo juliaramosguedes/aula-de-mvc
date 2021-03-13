@@ -9,11 +9,10 @@ const cadastro = (req, res) => {
 };
 
 const novoCadastro = (req, res) => {
-  console.log(req.body);
   const usuarioDoFormulario = { 
     email: req.body.email, 
-    password: req.body.password,
-    confirmPassword: req.body['confirm-password']
+    senha: req.body.password,
+    confirmarSenha: req.body['confirm-password']
   };
 
   const usuarioCadastrado = model.cadastrarUsuario(usuarioDoFormulario);
@@ -21,7 +20,13 @@ const novoCadastro = (req, res) => {
 };
 
 const entrar = (req, res) => {
+  const usuarioDoFormulario = { 
+    email: req.body.email, 
+    senha: req.body.password,
+  };
   
+  const usuarioAutenticado = model.autenticarUsuario(usuarioDoFormulario);
+  res.send(`Usuário autenticado: ${JSON.stringify(usuarioAutenticado)}`);
 }
 
 module.exports = {
