@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">    
+    <title>Login</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/signin.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">    
+  </head>
+  <body class="text-center">    
+    <main class="form-signin">
+      <h1 class="h3 mb-3 fw-normal">Sign in</h1>
+      
+      <form method="POST" action="/login/entrar">                
+          <label for="inputEmail" class="visually-hidden">E-mail</label>
+          <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Digite seu e-mail" required autofocus>
+          
+          <label for="inputPassword" class="visually-hidden">Senha</label>
+          <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Digite sua senha" required>
+          
+          <div class="checkbox mb-3">
+          <label>
+              <input type="checkbox" name="remember-me"  value="remember-me"> Lembrar senha
+          </label>
+          </div>
+          
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar agora!</button>          
+        </form>
+        
+        <p class="mt-5 mb-3 text-muted">&copy; DH 2021</p>     
+    </main>
+  </body>
+</html>
