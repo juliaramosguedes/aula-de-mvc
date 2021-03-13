@@ -2,13 +2,16 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/login');
 
-/* GET login index. */
+// GET login index (view)
 router.get('/', controller.index);
 
-// GET login cadastro
-router.get('/cadastro', controller.cadastro)
+// POST login/entrar (recebe formulário)
+router.post('/entrar', controller.entrar);
 
-// POST login cadastro
-router.post('/cadastro', controller.novoCadastro)
+// GET login/cadastro (view)
+router.get('/cadastro', controller.cadastro);
+
+// POST login/cadastro (recebe formulário)
+router.post('/cadastro', controller.novoCadastro);
 
 module.exports = router;

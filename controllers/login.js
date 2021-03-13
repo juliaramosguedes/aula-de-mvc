@@ -1,18 +1,32 @@
+const model = require('../models/usuarios');
+
 const index = (req, res) => {
   res.render('login/index');
-}
+};
 
 const cadastro = (req, res) => {
   res.render('login/cadastro');
-}
+};
 
 const novoCadastro = (req, res) => {
-  const {email, password} = req.body;
-  res.send(`Novo cadastro: ${JSON.stringify({email, password})}`)
+  console.log(req.body);
+  const usuarioDoFormulario = { 
+    email: req.body.email, 
+    password: req.body.password,
+    confirmPassword: req.body['confirm-password']
+  };
+
+  const usuarioCadastrado = model.cadastrarUsuario(usuarioDoFormulario);
+  res.send(`Novo cadastro: ${JSON.stringify(usuarioCadastrado)}`);
+};
+
+const entrar = (req, res) => {
+  
 }
 
 module.exports = {
-  index,
   cadastro,
-  novoCadastro
-}
+  entrar,
+  index,
+  novoCadastro,
+};
