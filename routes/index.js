@@ -5,4 +5,6 @@ const controller = require('../controllers/index');
 /* GET home page. */
 router.get('/', controller.index);
 
+router.get('/ola/:nome', controller.ola);
+
 module.exports = router;
