@@ -1,3 +1,68 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <link rel="stylesheet" href="/styles/404.css">
+</head>
+<body>
+    <div class="box">
+        <div class="box__ghost">
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            
+            <div class="box__ghost-container">
+            <div class="box__ghost-eyes">
+                <div class="box__eye-left"></div>
+                <div class="box__eye-right"></div>
+            </div>
+            <div class="box__ghost-bottom">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            </div>
+            <div class="box__ghost-shadow"></div>
+        </div>
+        
+        <div class="box__description">
+            <div class="box__description-container">
+              <div class="box__description-title">Whoops! <%= error.status %></div>
+              <div class="box__description-text">
+                <%= error.message %>
+              </div>
+            </div>
+            <a href="/" class="box__button">Voltar ao início</a>            
+        </div>        
+    </div>
+
+    <script>
+        var pageX = $(document).width();
+        var pageY = $(document).height();
+        var mouseY=0;
+        var mouseX=0;
+
+        $(document).mousemove(function( event ) {
+        //verticalAxis
+        mouseY = event.pageY;
+        yAxis = (pageY/2-mouseY)/pageY*300; 
+        //horizontalAxis
+        mouseX = event.pageX / -pageX;
+        xAxis = -mouseX * 100 - 100;
+
+        $('.box__ghost-eyes').css({ 'transform': 'translate('+ xAxis +'%,-'+ yAxis +'%)' }); 
+
+        //console.log('X: ' + xAxis);
+
+        });
+    </script>
+</body>
+</html>
